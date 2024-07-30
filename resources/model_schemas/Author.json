@@ -1,9 +1,9 @@
 [
     {
         "name": "id",
-        "dbType": "id",
-        "htmlType": null,
-        "validations": null,
+        "dbType": "bigInteger,true",
+        "htmlType": "number",
+        "validations": "",
         "searchable": false,
         "fillable": false,
         "primary": true,
@@ -13,9 +13,9 @@
     },
     {
         "name": "name",
-        "dbType": "string,100",
+        "dbType": "string",
         "htmlType": "text",
-        "validations": "required",
+        "validations": "required|string|max:100|string|max:100",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -25,26 +25,30 @@
     },
     {
         "name": "created_at",
-        "dbType": "timestamp",
-        "htmlType": "",
-        "validations": "",
+        "dbType": "datetime",
+        "htmlType": "date",
+        "validations": "nullable|nullable",
         "searchable": false,
         "fillable": false,
         "primary": false,
         "inForm": false,
         "inIndex": false,
-        "inView": true
+        "inView": false
     },
     {
         "name": "updated_at",
-        "dbType": "timestamp",
-        "htmlType": "",
-        "validations": "",
+        "dbType": "datetime",
+        "htmlType": "date",
+        "validations": "nullable|nullable",
         "searchable": false,
         "fillable": false,
         "primary": false,
         "inForm": false,
         "inIndex": false,
-        "inView": true
+        "inView": false
+    },
+    {
+        "type": "relation",
+        "relation": "1tm,Post,author_id"
     }
 ]

@@ -1,9 +1,9 @@
 [
     {
         "name": "id",
-        "dbType": "id",
-        "htmlType": null,
-        "validations": null,
+        "dbType": "bigInteger,true",
+        "htmlType": "number",
+        "validations": "",
         "searchable": false,
         "fillable": false,
         "primary": true,
@@ -13,9 +13,9 @@
     },
     {
         "name": "commenter_name",
-        "dbType": "string,100",
+        "dbType": "string",
         "htmlType": "text",
-        "validations": "required",
+        "validations": "required|string|max:100|string|max:100",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -25,9 +25,9 @@
     },
     {
         "name": "content",
-        "dbType": "text,1000",
+        "dbType": "text",
         "htmlType": "textarea",
-        "validations": "required",
+        "validations": "required|string|string",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -37,11 +37,10 @@
     },
     {
         "name": "post_id",
-        "dbType": "integer:unsigned:foreign,posts,id",
+        "dbType": "bigInteger,false",
         "htmlType": "number",
-        "relation": "mt1,Post,post_id,id",
         "validations": "required",
-        "searchable": false,
+        "searchable": true,
         "fillable": true,
         "primary": false,
         "inForm": true,
@@ -50,26 +49,34 @@
     },
     {
         "name": "created_at",
-        "dbType": "timestamp",
-        "htmlType": "",
-        "validations": "",
+        "dbType": "datetime",
+        "htmlType": "date",
+        "validations": "nullable|nullable",
         "searchable": false,
         "fillable": false,
         "primary": false,
         "inForm": false,
         "inIndex": false,
-        "inView": true
+        "inView": false
     },
     {
         "name": "updated_at",
-        "dbType": "timestamp",
-        "htmlType": "",
-        "validations": "",
+        "dbType": "datetime",
+        "htmlType": "date",
+        "validations": "nullable|nullable",
         "searchable": false,
         "fillable": false,
         "primary": false,
         "inForm": false,
         "inIndex": false,
-        "inView": true
+        "inView": false
+    },
+    {
+        "type": "relation",
+        "relation": "mt1,Post,post_id"
+    },
+    {
+        "type": "relation",
+        "relation": "mtm,Post,post_comment"
     }
 ]

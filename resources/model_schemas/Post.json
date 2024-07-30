@@ -1,9 +1,9 @@
 [
     {
         "name": "id",
-        "dbType": "id",
-        "htmlType": null,
-        "validations": null,
+        "dbType": "bigInteger,true",
+        "htmlType": "number",
+        "validations": "",
         "searchable": false,
         "fillable": false,
         "primary": true,
@@ -13,9 +13,9 @@
     },
     {
         "name": "title",
-        "dbType": "string,200",
+        "dbType": "string",
         "htmlType": "text",
-        "validations": "required",
+        "validations": "required|string|max:200|string|max:200",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -25,11 +25,10 @@
     },
     {
         "name": "author_id",
-        "dbType": "integer:unsigned:foreign,authors,id",
+        "dbType": "bigInteger,false",
         "htmlType": "number",
-        "relation": "mt1,Author,author_id,id",
         "validations": "required",
-        "searchable": false,
+        "searchable": true,
         "fillable": true,
         "primary": false,
         "inForm": true,
@@ -38,11 +37,10 @@
     },
     {
         "name": "category_id",
-        "dbType": "integer:unsigned:foreign,categories,id",
+        "dbType": "bigInteger,false",
         "htmlType": "number",
-        "relation": "mt1,Category,category_id,id",
         "validations": "required",
-        "searchable": false,
+        "searchable": true,
         "fillable": true,
         "primary": false,
         "inForm": true,
@@ -53,7 +51,7 @@
         "name": "content",
         "dbType": "text",
         "htmlType": "textarea",
-        "validations": "required",
+        "validations": "required|string|string",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -63,30 +61,46 @@
     },
     {
         "name": "created_at",
-        "dbType": "timestamp",
-        "htmlType": "",
-        "validations": "",
+        "dbType": "datetime",
+        "htmlType": "date",
+        "validations": "nullable|nullable",
         "searchable": false,
         "fillable": false,
         "primary": false,
         "inForm": false,
         "inIndex": false,
-        "inView": true
+        "inView": false
     },
     {
         "name": "updated_at",
-        "dbType": "timestamp",
-        "htmlType": "",
-        "validations": "",
+        "dbType": "datetime",
+        "htmlType": "date",
+        "validations": "nullable|nullable",
         "searchable": false,
         "fillable": false,
         "primary": false,
         "inForm": false,
         "inIndex": false,
-        "inView": true
+        "inView": false
     },
     {
         "type": "relation",
-        "relation": "belongsToMany,Tag,post_tag,post_id,tag_id"
+        "relation": "mt1,Author,author_id"
+    },
+    {
+        "type": "relation",
+        "relation": "mt1,Category,category_id"
+    },
+    {
+        "type": "relation",
+        "relation": "mtm,Tag,post_tag"
+    },
+    {
+        "type": "relation",
+        "relation": "1tm,Comment,post_id"
+    },
+    {
+        "type": "relation",
+        "relation": "mtm,Comment,post_comment"
     }
 ]

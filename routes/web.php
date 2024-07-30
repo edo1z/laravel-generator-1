@@ -21,3 +21,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Auth::routes();
 
+
+Route::resource('posts', App\Http\Controllers\PostController::class);
+Route::resource('authors', App\Http\Controllers\AuthorController::class);
+Route::resource('categories', App\Http\Controllers\CategoryController::class);
+Route::resource('tags', App\Http\Controllers\TagController::class);
+Route::resource('comments', App\Http\Controllers\CommentController::class);
