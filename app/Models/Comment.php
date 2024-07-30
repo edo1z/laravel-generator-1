@@ -3,10 +3,45 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
-class Comment extends Model
+ use Illuminate\Database\Eloquent\Factories\HasFactory;
+/**
+ * @OA\Schema(
+ *      schema="Comment",
+ *      required={"commenter_name","content","post_id"},
+ *      @OA\Property(
+ *          property="commenter_name",
+ *          description="",
+ *          readOnly=false,
+ *          nullable=false,
+ *          type="string",
+ *      ),
+ *      @OA\Property(
+ *          property="content",
+ *          description="",
+ *          readOnly=false,
+ *          nullable=false,
+ *          type="string",
+ *      ),
+ *      @OA\Property(
+ *          property="created_at",
+ *          description="",
+ *          readOnly=true,
+ *          nullable=true,
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @OA\Property(
+ *          property="updated_at",
+ *          description="",
+ *          readOnly=true,
+ *          nullable=true,
+ *          type="string",
+ *          format="date-time"
+ *      )
+ * )
+ */class Comment extends Model
 {
-    public $table = 'comments';
+    use HasFactory;    public $table = 'comments';
 
     public $fillable = [
         'commenter_name',

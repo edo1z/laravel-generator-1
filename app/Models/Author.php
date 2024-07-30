@@ -3,10 +3,38 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
-class Author extends Model
+ use Illuminate\Database\Eloquent\Factories\HasFactory;
+/**
+ * @OA\Schema(
+ *      schema="Author",
+ *      required={"name"},
+ *      @OA\Property(
+ *          property="name",
+ *          description="",
+ *          readOnly=false,
+ *          nullable=false,
+ *          type="string",
+ *      ),
+ *      @OA\Property(
+ *          property="created_at",
+ *          description="",
+ *          readOnly=true,
+ *          nullable=true,
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @OA\Property(
+ *          property="updated_at",
+ *          description="",
+ *          readOnly=true,
+ *          nullable=true,
+ *          type="string",
+ *          format="date-time"
+ *      )
+ * )
+ */class Author extends Model
 {
-    public $table = 'authors';
+    use HasFactory;    public $table = 'authors';
 
     public $fillable = [
         'name'

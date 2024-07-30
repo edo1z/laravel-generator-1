@@ -3,10 +3,38 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
-class Tag extends Model
+ use Illuminate\Database\Eloquent\Factories\HasFactory;
+/**
+ * @OA\Schema(
+ *      schema="Tag",
+ *      required={"name"},
+ *      @OA\Property(
+ *          property="name",
+ *          description="",
+ *          readOnly=false,
+ *          nullable=false,
+ *          type="string",
+ *      ),
+ *      @OA\Property(
+ *          property="created_at",
+ *          description="",
+ *          readOnly=true,
+ *          nullable=true,
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @OA\Property(
+ *          property="updated_at",
+ *          description="",
+ *          readOnly=true,
+ *          nullable=true,
+ *          type="string",
+ *          format="date-time"
+ *      )
+ * )
+ */class Tag extends Model
 {
-    public $table = 'tags';
+    use HasFactory;    public $table = 'tags';
 
     public $fillable = [
         'name'

@@ -19,3 +19,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
+
+
+Route::resource('posts', App\Http\Controllers\API\PostAPIController::class)
+    ->except(['create', 'edit']);
+
+Route::resource('comments', App\Http\Controllers\API\CommentAPIController::class)
+    ->except(['create', 'edit']);
+
+Route::resource('tags', App\Http\Controllers\API\TagAPIController::class)
+    ->except(['create', 'edit']);
+
+Route::resource('categories', App\Http\Controllers\API\CategoryAPIController::class)
+    ->except(['create', 'edit']);
+
+Route::resource('authors', App\Http\Controllers\API\AuthorAPIController::class)
+    ->except(['create', 'edit']);

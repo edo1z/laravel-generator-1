@@ -134,19 +134,19 @@ return [
 
         'save_schema_file' => true,
 
-        'localized' => false,
+        'localized' => true,
 
-        'repository_pattern' => true,
+        'repository_pattern' => false,
 
-        'resources' => false,
+        'resources' => true,
 
-        'factory' => false,
+        'factory' => true,
 
-        'seeder' => false,
+        'seeder' => true,
 
-        'swagger' => false, // generate swagger for your APIs
+        'swagger' => true, // generate swagger for your APIs
 
-        'tests' => false, // generate test cases for your APIs
+        'tests' => true, // generate test cases for your APIs
 
         'excluded_fields' => ['id'], // Array of columns that doesn't required while creating module
     ],
@@ -176,7 +176,7 @@ return [
     |
     */
 
-    'tables' => 'blade',
+    'tables' => 'livewire',
 
     /*
     |--------------------------------------------------------------------------

@@ -3,10 +3,45 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
-class Post extends Model
+ use Illuminate\Database\Eloquent\Factories\HasFactory;
+/**
+ * @OA\Schema(
+ *      schema="Post",
+ *      required={"title","author_id","category_id","content"},
+ *      @OA\Property(
+ *          property="title",
+ *          description="",
+ *          readOnly=false,
+ *          nullable=false,
+ *          type="string",
+ *      ),
+ *      @OA\Property(
+ *          property="content",
+ *          description="",
+ *          readOnly=false,
+ *          nullable=false,
+ *          type="string",
+ *      ),
+ *      @OA\Property(
+ *          property="created_at",
+ *          description="",
+ *          readOnly=true,
+ *          nullable=true,
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @OA\Property(
+ *          property="updated_at",
+ *          description="",
+ *          readOnly=true,
+ *          nullable=true,
+ *          type="string",
+ *          format="date-time"
+ *      )
+ * )
+ */class Post extends Model
 {
-    public $table = 'posts';
+    use HasFactory;    public $table = 'posts';
 
     public $fillable = [
         'title',
